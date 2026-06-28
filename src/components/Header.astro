@@ -3,31 +3,32 @@ import { NAV_ITEMS, SITE_TITLE } from '../data/site';
 import SectionContainer from './SectionContainer.astro';
 ---
 
-    <header class="fixed w-full z-50 bg-white-1/80 backdrop-blur-sm border-b border-base-1">
-      <SectionContainer class="flex flex-col md:flex-row justify-between items-center gap-6">
-      <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div class="text-xl font-serif font-bold text-main-1">{SITE_TITLE}</div>
-        
-        {/* PC用メニュー */}
-        <ul class="hidden md:flex gap-8">
-          {NAV_ITEMS.map((item) => (
-            <li><a href={item.url} class="text-black-1 hover:text-main-1 transition-colors">{item.text}</a></li>
-          ))}
-        </ul>
+<header class="fixed w-full z-50 bg-white-1/80 backdrop-blur-sm border-b border-base-1">
+  <SectionContainer class="flex items-center justify-between py-4">
+    <div class="text-xl font-serif font-bold text-main-1">{SITE_TITLE}</div>
+    
+    <nav class="hidden md:flex gap-8">
+      {NAV_ITEMS.map((item) => (
+        <a href={item.url} class="text-base text-black-1 hover:text-main-1 transition-colors">{item.text}</a>
+      ))}
+    </nav>
 
-        {/* ハンバーガーボタン */}
-        <button id="menu-btn" class="md:hidden p-2 text-main-1">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </button>
-      </nav>
-
-      {/* ドロワーメニュー (初期は非表示) */}
-      <div id="mobile-menu" class="hidden md:hidden bg-white-1 border-b border-base-1 p-6">
+    {/* 【魔法のボタン】detailsタグでアコーディオンを実装 */}
+    <details class="md:hidden relative">
+      <summary class="list-none p-2 text-main-1 cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </summary>
+      
+      {/* メニューの中身 */}
+      <div class="absolute right-0 top-12 w-64 bg-white-1 border border-base-1 p-6 rounded-lg shadow-xl">
         <ul class="flex flex-col gap-4">
           {NAV_ITEMS.map((item) => (
-            <li><a href={item.url} class="block text-black-1 font-serif text-lg">{item.text}</a></li>
+            <li><a href={item.url} class="block text-lg text-black-1 font-serif">{item.text}</a></li>
           ))}
         </ul>
       </div>
-      </SectionContainer>
-    </header>
+    </details>
+  </SectionContainer>
+</header>

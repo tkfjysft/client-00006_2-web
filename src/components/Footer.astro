@@ -1,6 +1,13 @@
 ---
+import { getEntry } from 'astro:content';
 import { OWNER_NAME } from '../data/site';
 import SectionContainer from './SectionContainer.astro';
+
+// footer.json を取得
+const footerData = (await getEntry('home', 'footer'))!;
+const { links } = footerData.data as {
+  links: { name: string; url: string }[];
+};
 
 // コピーライトの置換
 const copyright = "© 2026 " + OWNER_NAME + ". All Rights Reserved.";
@@ -12,9 +19,13 @@ const copyright = "© 2026 " + OWNER_NAME + ". All Rights Reserved.";
       {OWNER_NAME}
     </div>
 
+    {/* JSONの links を map で回して動的に表示 */}
     <nav class="flex gap-8">
-      <a href="#services" class="text-base text-black-1/70 hover:text-main-1 transition-colors">メニュー</a>
-      <a href="#faq" class="text-base text-black-1/70 hover:text-main-1 transition-colors">FAQ</a>
+      {links.map((link) => (
+        <a href={link.url} class="text-base text-black-1/70 hover:text-main-1 transition-colors">
+          {link.name}
+        </a>
+      ))}
     </nav>
 
     <p class="text-sm text-black-1/50">
