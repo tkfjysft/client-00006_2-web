@@ -8,16 +8,16 @@ const getIcon = (name: string) => {
 
 <header class="fixed w-full h-20 z-50 bg-white/80 backdrop-blur-sm border-b border-base-1">
   <div class="flex items-center justify-between max-w-[1440px] mx-auto py-4 h-20">
-    <div class="text-3xl font-serif font-bold text-black-1"><a href="/d/">{SITE_TITLE}</a></div>
+    <div class="text-3xl font-serif font-bold text-black-1"><Link href="/">{SITE_TITLE}</Link></div>
     
     <nav class="hidden md:flex gap-8">
       {NAV_ITEMS.map((item) => {
           const Icon = getIcon(item.icon);
           return (
-            <a href={item.url} class="flex items-center gap-2 text-base text-black-1 hover:text-accent-1 transition-colors">
+            <Link href={item.url} class="flex items-center gap-2 text-base text-black-1 hover:text-accent-1 transition-colors">
               {Icon && <Icon class="w-4 h-4 text-accent-1" />}
               <span>{item.text}</span>
-            </a>
+            </Link>
           );
         })}
     </nav>
@@ -34,7 +34,7 @@ const getIcon = (name: string) => {
       <div class="absolute right-0 top-12 w-64 bg-white-1 border border-base-1 p-6 rounded-lg shadow-xl">
         <ul class="flex flex-col gap-4">
           {NAV_ITEMS.map((item) => (
-            <li><a href={item.url} class="block text-lg text-black-1 font-serif">{item.text}</a></li>
+            <li><Link href={item.url} class="block text-lg text-black-1 font-serif">{item.text}</Link></li>
           ))}
         </ul>
       </div>

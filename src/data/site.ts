@@ -1,10 +1,10 @@
 export const NAV_ITEMS = [
-  { text: 'トップ', url: '/d/', icon: 'Home' },
-  { text: '鑑定のご案内', url: '/d/service', icon: 'Sparkles' },
-  { text: 'お客様の声', url: '/d/voice', icon: 'MessageCircle' },
-  { text: 'よくあるご質問', url: '/d/faq', icon: 'HelpCircle' },
-  { text: 'プロフィール', url: '/d/profile', icon: 'User' },
-  { text: 'ご予約・お問合せ', url: '/d/contact', icon: 'Mail' },
+  { text: 'トップ', url: '/', icon: 'Home' },
+  { text: '鑑定のご案内', url: '/service', icon: 'Sparkles' },
+  { text: 'お客様の声', url: '/voice', icon: 'MessageCircle' },
+  { text: 'よくあるご質問', url: '/faq', icon: 'HelpCircle' },
+  { text: 'プロフィール', url: '/profile', icon: 'User' },
+  { text: 'ご予約・お問合せ', url: '/contact', icon: 'Mail' },
 ];
 
 export const SITE_TITLE = "YUKI TAROT";

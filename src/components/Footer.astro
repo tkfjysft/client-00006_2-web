@@ -51,10 +51,10 @@ const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
       {links.map((link) => {
           const Icon = getIcon(link.icon);
           return (
-            <a href={link.url} class="flex items-center gap-2 text-base text-white-1 hover:text-accent-1 transition-colors">
+            <Link href={link.url} class="flex items-center gap-2 text-base text-white-1 hover:text-accent-1 transition-colors">
               {Icon && <Icon class="w-4 h-4 text-accent-1" />}
               <span>{link.name}</span>
-            </a>
+            </Link>
           );
         })}
           </ul>
@@ -101,9 +101,9 @@ const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
       <ul class="flex flex-wrap justify-end gap-6 list-none p-0 m-0">
         {sublinks.map((link) => (
           <li>
-            <a href={link.url} class="text-base text-black-1/60 text-white-1 hover:text-white-1/50 transition-colors">
+            <Link href={link.url} class="text-base text-black-1/60 text-white-1 hover:text-white-1/50 transition-colors">
               {link.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
