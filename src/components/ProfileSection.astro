@@ -1,9 +1,11 @@
 ---
 import { getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import profileImage from '../assets/images/owner/face_owner.webp';
+import profileImage from '../assets/images/owner/face_owner.avif';
 import SectionContainer from './SectionContainer.astro';
 import { OWNER_NAME } from '../data/site';
+import { Image } from 'astro:assets';
+import leftTopFrame from '../assets/images/radiance.avif';
+import lineBright from '../assets/images/line_bright.png';
 
 const data = await getEntry('home', 'profile');
 if (!data) throw new Error("profile.jsonが見つかりません");
@@ -11,35 +13,43 @@ if (!data) throw new Error("profile.jsonが見つかりません");
 const { title, text, tags } = data.data;
 ---
 
-<section class="py-24 md:py-32 bg-clr-base-1 text-clr-wh-1">
+<section id="profile" class="section-margin-y py-24 md:py-32 text-clr-wh-1">
   <SectionContainer>
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl font-serif text-clr-main-1 tracking-widest uppercase">
+    <div class="relative mb-20">
+	<Image 
+		src={lineBright} 
+		alt="" 
+		width={713} 
+		height={300}
+		class="absolute inset-0 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-[-1] w-[100vw] pointer-events-none mix-blend-screen"
+		aria-hidden="true"
+    />  
+      <h2 class="txt-luster [text-shadow:_0_0_30px_white] text-3xl text-center md:text-6xl font-serif text-clr-main-1 sm:tracking-widest mb-6">
         {title}
       </h2>
-      <div class="w-20 h-px bg-clr-main-1 mx-auto mt-8"></div>
+
     </div>
+
     
     <div class="flex flex-col md:flex-row items-start gap-16 max-w-5xl mx-auto">
       
       {/* 写真エリア：角を活かした重厚なスタイル */}
       <div class="relative flex-shrink-0 mx-auto md:mx-0">
-        <div class="absolute -top-4 -left-4 w-full h-full border border-clr-main-1/30"></div>
         <Image 
           src={profileImage} 
           alt={OWNER_NAME} 
-          class="shadow-2xl w-[280px] md:w-[320px] aspect-[4/5] object-cover grayscale brightness-90 border border-clr-main-1/20" 
+          class="shadow-2xl w-[280px] md:w-[320px] aspect-[4/5] object-cover brightness-90 border border-clr-main-1/20" 
         />
       </div>
       
       {/* 紹介テキストエリア */}
-      <div class="space-y-10">
+      <div class="space-y-10 text-clr-bl-1 text-lg mx-auto leading-relaxed bg-white/50 backdrop-blur-md border border-white/10 p-6 mb-16 md:p-8 rounded-3xl shadow-2xl">
         <div>
-          <p class="text-base tracking-[0.2em] text-clr-main-1/70 uppercase mb-4">Profile</p>
-          <h3 class="text-3xl md:text-4xl font-serif text-clr-wh-1">{OWNER_NAME}</h3>
+          <p class="text-base tracking-[0.2em] text-clr-main-1/70 uppercase mb-4">name</p>
+          <h3 class="text-3xl md:text-4xl font-serif text-clr-bl-1">{OWNER_NAME}</h3>
         </div>
         
-        <p class="text-base md:text-lg text-clr-wh-1/90 leading-relaxed whitespace-pre-line">
+        <p class="text-base md:text-lg text-clr-bl-1/90 leading-relaxed whitespace-pre-line">
           {text}
         </p>
 

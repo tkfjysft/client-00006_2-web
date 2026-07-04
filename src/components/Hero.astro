@@ -1,53 +1,76 @@
 ---
 import { getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import heroImage from '../assets/images/hero.webp';
 
 const heroData = (await getEntry('home', 'hero'))!;
-const { heroTitle_A, heroTitle_B, heroTitle_C, heroSub, heroDescription, buttonText } = heroData.data;
+const { heroTitle, heroSub, heroDescription, buttonText } = heroData.data;
 ---
 
-<section class="relative w-full h-screen flex items-center justify-center px-6 py-12 bg-clr-base-1 overflow-hidden">
 
-  {/* 装飾コンテナ（背景の円を少し整理） */}
-<div class="absolute inset-0 w-full h-full pointer-events-none">
-	    <div class="absolute -top-10 -left-10 w-80 h-80 bg-clr-main-1/30 rounded-full blur-[100px]"></div>
-    <div class="absolute bottom-35 right-0 w-70 h-70 bg-clr-accent-1/30 rounded-full blur-[100px]"></div>
+
+<section class="relative w-full h-screen overflow-hidden">
+  
+  <div class="absolute top-[12%] sm:top-[35%] left-6 md:left-20 z-20 w-[90%] md:w-auto">
+    <div class="flex flex-col items-start space-y-4">
+      <p class="w-fit txt-shadow text-white/90 font-serif tracking-[0.1em] sm:tracking-[0.3em] uppercase text-sm md:text-base font-medium bg-black/20 backdrop-blur-[2px] px-3 py-1 rounded-lg">
+        {heroSub}
+      </p>
+      <h1 class="txt-shadow text-white font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.1]" set:html={heroTitle} /> 
+    </div>
   </div>
 
-  <div class="relative z-10 w-full max-w-[1200px] flex flex-col md:flex-row items-center gap-16">
+  <div class="absolute bottom-12 right-6 md:right-20 z-20 pl-20 md:pl-40 flex flex-col items-end text-left">
+    <div class="txt-shadow text-white/90 text-base md:text-lg leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" set:html={heroDescription} />
+    <div class="pt-6">
+      <a href="/contact" class="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/40 px-10 py-4 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:scale-105 duration-300">
+        <span class="font-semibold tracking-widest">{buttonText}</span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- 
+
+<section class="relative w-full h-screen overflow-hidden">
+  
+
+
+  <div class="relative z-10 w-full h-full max-w-[1400px] mx-auto px-6 md:px-20">
+
+
+
+
+  <div class="relative w-full h-full  grid grid-cols-1 md:grid-cols-2 items-center">
     
-    {/* テキストエリア */}
-    <div class="flex-1 space-y-8">
+    <div class="flex flex-col justify-center h-full">
       <div class="space-y-4">
-        <p class="text-clr-main-1 font-serif tracking-widest uppercase text-base font-semibold">{heroSub}</p>
-        <!-- <h1 class=" font-serif leading-[1.2] text-clr-bl-1" set:html=> -->
-        <h1 class="font-serif leading-[1.4] text-clr-bl-1">
-			<span class="text-4xl md:text-6xl">{heroTitle_A}</span><br />
-			<span class="text-[40px]">{heroTitle_B}</span><br />
-			<span class="text-[40px]">{heroTitle_C}</span>
-	  </h1>
-      </div>
-      
-      <div class="text-clr-bl-1/80 leading-relaxed max-w-md" set:html={heroDescription} />
+
+		<p class="w-fit inline-block txt-shadow text-white/90 font-serif tracking-[0.3em] uppercase text-sm md:text-base font-medium bg-black/20 backdrop-blur-[2px] px-3 py-1 rounded-lg">
+          {heroSub}
+        </p>
+
+		<h1 class="txt-shadow mt-4 text-white font-serif text-4xl md:text-6xl lg:text-6xl leading-[1.1]" set:html={heroTitle} /> 
+	 </div>
+    </div>
+
+    <div class="hidden md:flex flex-col justify-end items-end h-full pb-20 space-y-8">
+      <div class="txt-shadow text-white/90 text-lg leading-relaxed max-w-sm text-right drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" set:html={heroDescription} />
       
       <div class="pt-4">
-        <a href="/contact" class="inline-flex items-center bg-clr-main-1 text-white px-10 py-4 rounded-full shadow-lg hover:shadow-clr-main-1/20 transition-all hover:-translate-y-1">
-          {buttonText}
+        <a href="/contact" class="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/40 px-10 py-4 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:scale-105 duration-300">
+          <span class="font-semibold tracking-widest">{buttonText}</span>
         </a>
       </div>
     </div>
 
-    {/* 写真エリア（フレーム効果を追加） */}
-    <div class="flex-1 w-full relative">
-      {/* 写真の背後にアクセントの枠を追加 */}
-      <div class="absolute -top-6 -right-6 w-full h-full border border-clr-main-1/20 rounded-3xl -z-10"></div>
-      
-      <Image 
-        src={heroImage} 
-        alt="占い風景" 
-        class="rounded-3xl shadow-2xl w-full h-auto object-cover max-h-[600px] aspect-[4/5] md:aspect-auto" 
-      />
+    <div class="md:hidden flex flex-col items-center pb-12 space-y-8 text-center">
+       <div class="text-white/90 text-base leading-relaxed max-w-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" set:html={heroDescription} />
+       <a href="/contact" class="bg-white/20 backdrop-blur-sm text-white border border-white/40 px-8 py-3 rounded-full">{buttonText}</a>
     </div>
+
   </div>
-</section>
+  </div>
+</section> -->

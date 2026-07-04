@@ -7,14 +7,19 @@ import FlowSection from '../components/FlowSection.astro';
 import TestimonialSection from '../components/TestimonialSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import ProfileSection from '../components/ProfileSection.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
 ---
 
 <BaseLayout title="トップページ">
   <Hero />
+  <div class="wrap">
   <Greeting />
   <ServiceSection />
   <FlowSection />
   <TestimonialSection />
   <FaqSection />
   <ProfileSection />
+  <section class="pt-200 bg-[#ffffff05]"></section>
+  </div>
+  <ScrollToTop />
 </BaseLayout>

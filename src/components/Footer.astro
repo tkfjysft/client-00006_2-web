@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import Link from '../components/Link.astro';
 import SectionContainer from './SectionContainer.astro';
-import { SITE_TITLE, OWNER_NAME, POST_CODE, ADDRESS, TEL, FAX, GOOGLE_MAP_URL } from '../data/site';
+import { SITE_TITLE, OWNER_NAME, POST_CODE, ADDRESS, TEL, FAX, GOOGLE_MAP_URL, OWNER_FULLNAME } from '../data/site';
 import * as Lucide from 'lucide-astro';
 import tarot11 from '../assets/images/tarot/tarot_majar_arcana_11.webp';
 import tarot1 from '../assets/images/tarot/tarot_majar_arcana_1.webp';
@@ -21,97 +21,54 @@ const sublinks = footerData.data.sublinks || [];
 const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
 ---
 
-<footer class="relative py-20 bg-clr-main-1/70 border-t border-clr-main-1/10">
-
-  <div class="absolute bottom-40 -left-20 w-64 opacity-5 rotate-25 pointer-events-none grayscale">
-    <Image src={tarot11} alt="" />
-  </div>
-  <div class="absolute bottom-10 left-30 w-64 opacity-5 rotate-9 pointer-events-none grayscale">
-    <Image src={tarot1} alt="" />
-  </div>
+<footer class="relative py-20 bg-clr-wh-1/85">
 
   <SectionContainer>
-    <div class="grid md:grid-cols-[1fr_2fr] gap-16 mb-16">
+    <div class="grid md:grid-cols-[1fr_1fr] gap-16 mb-16">
       
-      {/* 左側：サイト情報 */}
       <div class="space-y-8">
-        <h2 class="text-3xl font-serif text-clr-wh-1 font-bold">{SITE_TITLE}</h2>
-        <div class="space-y-3 text-base text-clr-wh-1 leading-relaxed">
+        <h2 class="text-3xl font-serif text-clr-bl-1 font-bold">{SITE_TITLE}</h2>
+        <div class="space-y-3 text-base text-clr-bl-1 leading-relaxed">
           <p>〒{POST_CODE}<br />{ADDRESS}</p>
           <p>電話番号：{TEL}</p>
           <p>FAX：{FAX}</p>
+          <p>代表者：{OWNER_FULLNAME}</p>
         </div>
 
       </div>
 
-      {/* 右側：リンクとマップ */}
-      <div class="space-y-8">
-        {/* メインリンク */}
-        <nav>
-          <ul class="flex flex-wrap gap-x-8 gap-y-4 list-none p-0 m-0">
-      {links.map((link) => {
-          const Icon = getIcon(link.icon);
-          return (
-            <Link href={link.url} class="flex items-center gap-2 text-base text-clr-wh-1 hover:text-clr-accent-1 transition-colors">
-              {Icon && <Icon class="w-4 h-4 text-clr-accent-1" />}
-              <span>{link.name}</span>
-            </Link>
-          );
-        })}
-          </ul>
-        </nav>
-        
-        {/* 地図 */}
-        <div class="aspect-video w-[70%] rounded-2xl overflow-hidden shadow-sm border border-clr-main-1/10">
-          <iframe 
-            src={GOOGLE_MAP_URL} 
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy"
-            title="事務所の場所"
-          ></iframe>
-        </div>
-      </div>
+		<div class="pt-10 border-t border-clr-main-1/5 space-y-8">
+
+		<div class="flex flex-wrap justify-end gap-6 pt-4">
+			<div class="flex items-center gap-8">
+				{/* Twitter(X) */}
+				<i class="fa-brands fa-x-twitter text-2xl text-clr-bl-1/40"></i>
+				{/* Instagram */}
+				<i class="fa-brands fa-instagram text-2xl text-clr-bl-1/40"></i>
+				{/* LINE */}
+				<i class="fa-brands fa-line text-2xl text-clr-bl-1/40"></i>
+			</div>
+			</div>
+		
+		<div>
+		<ul class="flex flex-wrap justify-end gap-6 list-none p-0 m-0">
+			{sublinks.map((link) => (
+			<li>
+				<Link href={link.url} class="text-base text-clr-bl-1/60 text-clr-bl-1 hover:text-clr-bl-1/50 transition-colors">
+				{link.name}
+				</Link>
+			</li>
+			))}
+		</ul>
+		</div>
+		</div>
+
     </div>
 
-    {/* 下段：サブリンクとコピーライト */}
+
     <div class="pt-10 border-t border-clr-main-1/5 space-y-8">
-
-      <div class="flex flex-wrap justify-end gap-6 pt-4">
-          <div class="flex items-center gap-5">
-            {/* Twitter(X) */}
-            <svg class="w-6 h-6 text-clr-wh-1/40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            {/* Instagram */}
-            <svg class="w-6 h-6 text-clr-wh-1/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            {/* LINE */}
-            <svg class="w-6 h-6 text-clr-wh-1/40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738s-12 4.369-12 9.738c0 4.814 4.269 8.846 10.036 9.564.39.084.922.258 1.057.592.12.297.08.764.038 1.066l-.171 1.026c-.052.31-.252 1.214 1.085.661 1.338-.553 7.211-4.25 9.839-7.277 2.062-2.228 3.156-4.574 3.156-6.936zm-15.632 2.54h-1.89v-4.885h.633v4.252h1.257v.633zm1.902 0h-.634v-4.885h.634v4.885zm3.844 0h-.62l-1.954-2.853v2.853h-.634v-4.885h.61l1.964 2.863V7.959h.634v4.885zm2.748-.633h-1.428V10.15h1.341v-.633h-1.341v-1.04h1.428v-.518h-2.061v4.885h2.061v-.518z"/>
-            </svg>
-          </div>
-        </div>
-      
       <div>
-      <ul class="flex flex-wrap justify-end gap-6 list-none p-0 m-0">
-        {sublinks.map((link) => (
-          <li>
-            <Link href={link.url} class="text-base text-clr-bl-1/60 text-clr-wh-1 hover:text-clr-wh-1/50 transition-colors">
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      </div>
-
-      <div>
-      <p class="flex flex-wrap justify-end text-sm text-clr-wh-1/80">
+      <p class="flex flex-wrap justify-center text-sm text-clr-bl-1/80">
         {copyright}
       </p>
       </div>

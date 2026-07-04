@@ -1,15 +1,16 @@
 export const NAV_ITEMS = [
-  { text: 'トップ', url: '/', icon: 'Home' },
-  { text: 'セッション', url: '/service', icon: 'Sparkles' },
-  { text: 'お客様の声', url: '/voice', icon: 'MessageCircle' },
-  { text: 'よくあるご質問', url: '/faq', icon: 'HelpCircle' },
-  { text: 'プロフィール', url: '/profile', icon: 'User' },
+  { text: 'トップ', url: '/', icon: 'Sun' },
+  { text: 'セッション', url: '#service', icon: 'Sparkles' },
+  { text: 'お客様の声', url: '#voice', icon: 'MessageCircle' },
+  { text: 'よくあるご質問', url: '#faq', icon: 'HelpCircle' },
+  { text: 'プロフィール', url: '#profile', icon: 'User' },
   { text: 'ご予約・お問合せ', url: '/contact', icon: 'Mail' },
 ];
 
-export const SITE_TITLE = "YUKI TAROT";
-export const OWNER_NAME = "ユキ";
-export const OWNER_NAME_EN = "YUKI";
+export const SITE_TITLE = "MAHO'S SESSION";
+export const OWNER_NAME = "マホ";
+export const OWNER_FULLNAME = "神崎 真帆";
+export const OWNER_NAME_EN = "MAHO";
 export const POST_CODE = "*******";
 export const ADDRESS = "東京都千代田区丸の内1丁目9-1";
 export const TEL = "0000000000";
