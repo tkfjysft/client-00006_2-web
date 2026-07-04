@@ -36,16 +36,17 @@ const { title, description, items } = serviceData.data;
 
     <div class="grid lg:grid-cols-3 gap-30 lg:gap-16">
       {items.map((item) => (
-        <div class="relative group bg-gradient-to-b from-clr-base-1/80 to-clr-base-1/99 border border-clr-wh-1/10 p-10 hover:border-clr-main-1/50 transition-all duration-700 rounded-2xl isolation-isolate">
+        <div class="relative group bg-gradient-to-b from-clr-base-1/80 to-clr-base-1/99 border border-clr-wh-1/10 p-10 hover:border-clr-main-1/50 transition-all duration-700 rounded-2xl">
           
-<Image 
-    src={leftTopFrame} 
-    alt="" 
-    width={495} 
-    height={415}
-    class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 w-auto max-w-50 pointer-events-none rotate-[-25deg] mix-blend-screen "
-    aria-hidden="true"
-  />  
+			<Image 
+				src={leftTopFrame} 
+				alt="" 
+				width={200} 
+				height={168}
+				class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 mix-blend-screen pointer-events-none backface-hidden"
+				style="will-change: transform; transform: translateZ(0);"
+				aria-hidden="true"
+			/>  
           {/* カード上部の光の演出 */}
           <div class="absolute inset-0 bg-gradient-to-b from-clr-main-1/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 

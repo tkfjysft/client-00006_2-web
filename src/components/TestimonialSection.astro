@@ -32,14 +32,15 @@ const { title, reviews } = reviewData.data;
       {reviews.map((review) => (
         <div class="relative group bg-gradient-to-b from-clr-base-1/80 to-clr-base-1/99 border border-clr-wh-1/10 p-10 hover:border-clr-main-1/50 transition-all duration-700 rounded-2xl flex flex-col">
           
-		  <Image 
-    src={leftTopFrame} 
-    alt="" 
-    width={600} 
-    height={600}
-    class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-0 opacity-100 w-auto max-w-50 pointer-events-none rotate-[-25deg] mix-blend-screen"
-    aria-hidden="true"
-  />  
+			<Image 
+				src={leftTopFrame} 
+				alt="" 
+				width={200} 
+				height={168}
+				class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 mix-blend-screen pointer-events-none backface-hidden"
+				style="will-change: transform; transform: translateZ(0);"
+				aria-hidden="true"
+			/>  
 
           <Quote class="w-8 h-8 text-clr-main-2 mb-6 opacity-50" />
 
