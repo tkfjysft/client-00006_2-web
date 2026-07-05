@@ -6,8 +6,8 @@
     { "name": "よくあるご質問", "url": "#faq", "icon": "HelpCircle" }
   ],
   "sublinks": [
-    { "name": "特定商取引法に関する記述", "url": "law" },
-    { "name": "プライバシーポリシー", "url": "privacy" }
+    { "name": "特定商取引法に関する記述", "url": "/law" },
+    { "name": "プライバシーポリシー", "url": "/privacy" }
   ]
 }
 
