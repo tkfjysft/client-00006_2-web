@@ -1,9 +1,12 @@
 {
-  "rewrites": [
-    { "source": "/e/(.*)", "destination": "/$1" }
-  ],
   "cleanUrls": true,
-  "error": {
-    "404": "/e/404.html"
-  }
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/e/(.*)",
+      "dest": "/e/404.html"
+    }
+  ]
 }
