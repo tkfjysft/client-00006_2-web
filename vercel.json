@@ -2,5 +2,8 @@
   "rewrites": [
     { "source": "/e/(.*)", "destination": "/$1" }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "error": {
+    "404": "/e/404.html"
+  }
 }
