@@ -1,0 +1,17 @@
+{
+  "copyright": "© 2026 {NAME}. All Rights Reserved.",
+  "links": [
+    { "name": "鑑定メニュー", "url": "#services", "icon": "Sparkles" },
+    { "name": "お客様の声", "url": "#testimonials", "icon": "MessageCircle" },
+    { "name": "よくあるご質問", "url": "#faq", "icon": "HelpCircle" }
+  ],
+  "sublinks": [
+    { "name": "特定商取引法に関する記述", "url": "/law" },
+    { "name": "プライバシーポリシー", "url": "/privacy" }
+  ]
+}
+
+
+
+
+
