@@ -54,10 +54,10 @@ const { title, text, tags } = data.data;
         </p>
 
         {/* タグエリア：四角形の枠で統一 */}
-        <div class="flex flex-wrap gap-4 pt-4">
+<div class="flex flex-wrap gap-3 pt-4">
           {tags.map((tag) => (
-            <span class="px-6 py-3 border border-clr-main-1/30 text-clr-main-1 text-base font-medium">
-              {tag}
+            <span class="px-4 py-1.5 rounded-full bg-clr-main-1/5 border border-clr-main-1/20 text-clr-main-1 text-sm font-medium transition-all hover:bg-clr-main-1/10 hover:border-clr-main-1/40 cursor-default">
+              #{tag}
             </span>
           ))}
         </div>

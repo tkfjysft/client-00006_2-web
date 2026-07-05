@@ -5,8 +5,8 @@ import Link from '../components/Link.astro';
 import SectionContainer from './SectionContainer.astro';
 import { SITE_TITLE, OWNER_NAME, POST_CODE, ADDRESS, TEL, FAX, GOOGLE_MAP_URL, OWNER_FULLNAME } from '../data/site';
 import * as Lucide from 'lucide-astro';
-import tarot11 from '../assets/images/tarot/tarot_majar_arcana_11.webp';
-import tarot1 from '../assets/images/tarot/tarot_majar_arcana_1.webp';
+import horoscope from '../assets/images/horoscope.avif';
+
 
 const getIcon = (name: string) => {
   return Lucide[name as keyof typeof Lucide];
@@ -21,13 +21,27 @@ const sublinks = footerData.data.sublinks || [];
 const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
 ---
 
-<footer class="relative py-30 bg-clr-wh-1/85">
+<footer class="relative py-30 bg-clr-wh-1/85 overflow-hidden">
+
+<div class="absolute inset-0 flex justify-center pointer-events-none p-10">
+    <div class="relative w-[400px] h-full">
+      <Image 
+          src={horoscope} 
+          alt="" 
+          width={400} 
+          height={400}
+          class="absolute top-40 md:top-15 left-0 opacity-10 w-[400px] h-auto"
+          aria-hidden="true"
+      />
+    </div>
+  </div>
 
   <SectionContainer>
+
     <div class="grid md:grid-cols-[1fr_1fr] gap-16 mb-16">
       
       <div class="space-y-8">
-        <h2 class="text-3xl font-serif text-clr-bl-1 font-bold">{SITE_TITLE}</h2>
+        <h2 class="text-2xl font-serif text-clr-bl-1 font-bold">{SITE_TITLE}</h2>
         <div class="space-y-3 text-base text-clr-bl-1 leading-relaxed">
           <p>〒{POST_CODE}<br />{ADDRESS}</p>
           <p>電話番号：{TEL}</p>
@@ -37,7 +51,10 @@ const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
 
       </div>
 
-		<div class="pt-10 border-t border-clr-main-1/5 space-y-8">
+
+
+
+	<div class="pt-10 border-t border-clr-main-1/5 space-y-8">
 
 		<div class="flex flex-wrap justify-end gap-6 pt-4">
 			<div class="flex items-center gap-8">
@@ -61,12 +78,12 @@ const copyright = footerData.data.copyright.replace('{NAME}', SITE_TITLE);
 			))}
 		</ul>
 		</div>
-		</div>
+	</div>
 
     </div>
 
 
-    <div class="pt-10 border-t border-clr-main-1/5 space-y-8">
+    <div class="pt-20 md:pt-40 border-t border-clr-main-1/5 space-y-8">
       <div>
       <p class="flex flex-wrap justify-center text-sm text-clr-bl-1/80">
         {copyright}
