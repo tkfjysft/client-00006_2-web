@@ -1,12 +1,6 @@
 {
-  "cleanUrls": true,
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/e/(.*)",
-      "dest": "/e/404.html"
-    }
-  ]
+  "rewrites": [
+    { "source": "/e/(.*)", "destination": "/$1" }
+  ],
+  "cleanUrls": true
 }
