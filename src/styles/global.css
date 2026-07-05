@@ -70,6 +70,7 @@ body {
 @media (orientation: portrait) {
   .bg-fixed-container {
     background-image: url('../assets/images/bg_sm.avif');
+	opacity: 0.8;
   }
 }
 
