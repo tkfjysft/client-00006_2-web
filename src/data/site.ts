@@ -1,13 +1,13 @@
 export const NAV_ITEMS = [
   { text: 'トップ', url: '/', icon: 'Sun' },
-  { text: '鑑定メニュー', url: '#service', icon: 'Sparkles' }, // 「セッション」から変更
+  { text: '鑑定メニュー', url: '#service', icon: 'Sparkles' }, 
   { text: 'お客様の声', url: '#voice', icon: 'MessageCircle' },
   { text: 'よくあるご質問', url: '#faq', icon: 'HelpCircle' },
   { text: 'プロフィール', url: '#profile', icon: 'User' },
   { text: 'ご予約/お問合せ', url: '/contact', icon: 'Mail' },
 ];
 
-export const SITE_TITLE = "MAHO'S ASTROLOGY"; // 「SESSION」から占星術を意味する「ASTROLOGY」へ変更
+export const SITE_TITLE = "MAHO'S ASTROLOGY"; 
 export const OWNER_NAME = "マホ";
 export const OWNER_FULLNAME = "神崎 真帆";
 export const OWNER_NAME_EN = "MAHO";

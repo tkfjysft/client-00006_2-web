@@ -21,7 +21,6 @@ const getIcon = (name: string) => {
           const Icon = getIcon(item.icon);
           return (
             <Link href={item.url} class="txt-luster flex items-center gap-2 font-bold text-base text-clr-bl-1 hover:text-clr-main-1/70 transition-colors tracking-[-0.01em]">
-              {/* {Icon && <Icon class="w-4 h-4 text-clr-accent-1" />} */}
               <span>{item.text}</span>
             </Link>
           );
@@ -38,7 +37,6 @@ const getIcon = (name: string) => {
         </svg>
       </summary>
       
-      {/* メニューの中身 */}
       <div class="absolute right-0 top-12 w-64 bg-clr-wh-1 border border-clr-base-1 p-6 rounded-lg shadow-xl">
         <ul class="flex flex-col gap-4">
           {NAV_ITEMS.map((item) => (

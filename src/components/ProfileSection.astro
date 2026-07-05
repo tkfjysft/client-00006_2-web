@@ -33,7 +33,6 @@ const { title, text, tags } = data.data;
     
     <div class="flex flex-col md:flex-row items-start gap-16 max-w-5xl mx-auto">
       
-      {/* 写真エリア：角を活かした重厚なスタイル */}
       <div class="relative flex-shrink-0 mx-auto md:mx-0">
         <Image 
           src={profileImage} 
@@ -42,7 +41,6 @@ const { title, text, tags } = data.data;
         />
       </div>
       
-      {/* 紹介テキストエリア */}
       <div class="space-y-10 text-clr-bl-1 text-lg mx-auto leading-relaxed bg-white/50 backdrop-blur-md border border-white/10 p-6 mb-16 md:p-8 rounded-3xl shadow-2xl">
         <div>
           <p class="text-base tracking-[0.2em] text-clr-main-1/70 uppercase mb-4">name</p>
@@ -53,7 +51,6 @@ const { title, text, tags } = data.data;
           {text}
         </p>
 
-        {/* タグエリア：四角形の枠で統一 */}
 <div class="flex flex-wrap gap-3 pt-4">
           {tags.map((tag) => (
             <span class="px-4 py-1.5 rounded-full bg-clr-main-1/5 border border-clr-main-1/20 text-clr-main-1 text-sm font-medium transition-all hover:bg-clr-main-1/10 hover:border-clr-main-1/40 cursor-default">

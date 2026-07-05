@@ -27,9 +27,7 @@ const { title, steps } = flowData.data;
     </div>
 	<!-- <p class="text-clr-bl-1 text-lg max-w-lg mx-auto leading-relaxed bg-white/50 backdrop-blur-md border border-white/10 p-6 mb-16 md:p-8 rounded-3xl shadow-2xl">{description}</p> -->
 
-    {/* PC時はグリッドで等間隔に配置し、線を中央に通す */}
     <div class="grid md:grid-cols-4 gap-8 relative mx-auto leading-relaxed bg-white/50 backdrop-blur-md border border-white/10 p-6 mb-16 md:p-8 rounded-3xl shadow-2xl">
-      {/* 連結線：PC時のみ、grid全体の中央を通す */}
       <div class="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-px border-t border-dashed border-clr-main-1/30"></div>
 
       {steps.map((item, index) => {
@@ -37,7 +35,6 @@ const { title, steps } = flowData.data;
         
         return (
           <div class="relative flex flex-col items-center text-center group z-10">
-            {/* ステップ番号：背景色の指定により線が背後を通るようにする */}
             <div class="w-16 h-16 border border-clr-main-1 flex items-center justify-center text-2xl font-serif text-clr-wh-1 mb-6 bg-clr-base-1 group-hover:bg-clr-main-1 transition-all duration-500">
               {romanNumbers[index] || item.step}
             </div>
@@ -46,7 +43,6 @@ const { title, steps } = flowData.data;
               {item.name}
             </h3>
             
-            {/* 説明文のみ左寄せ */}
             <p class="text-base text-clr-bl-1 leading-relaxed text-left w-full max-w-[240px]">
               {item.description}
             </p>
