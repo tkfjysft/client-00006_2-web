@@ -6,10 +6,27 @@ import Link from '../components/Link.astro';
 
 <BaseLayout title="ページが見つかりません | MAHO'S ASTROLOGY">
   <div class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-    <h1 class="text-6xl font-serif text-clr-main-1 mb-6">404</h1>
-    <p class="text-xl text-clr-bl-1 mb-8">お探しの星（ページ）は見つかりませんでした。</p>
-    <Link href="/" class="px-8 py-3 bg-clr-main-1 text-white rounded-full hover:opacity-80 transition-opacity">
-      トップページへ戻る
-    </Link>
+      <div class="relative z-10 text-center">
+        <p class="text-clr-primary-1 font-mono text-xs tracking-[0.3em] uppercase mb-4">
+          Status: 404
+        </p>
+        
+        <h1 class="text-clr-base-1 text-2xl sm:text-3xl font-bold tracking-wider mb-6 uppercase">
+          Frontend Demo Site
+        </h1>
+        
+        <p class="text-clr-base-1/70 text-sm leading-relaxed tracking-widest mb-12 text-left sm:text-left bg-white/50 p-4">
+          当サイトはフロントエンドの実装サンプル（ポートフォリオ）として制作しているため、現在はトップページのみの実装となっております。<br class="hidden sm:inline" />
+          メインのコンポーネントやアニメーションの挙動は、ぜひトップページにてご覧ください。
+        </p>
+
+
+        <Link 
+          href="/"
+          class="inline-block bg-clr-main-1 border border-clr-base-1/20 hover:border-clr-primary-1 text-clr-wh-1 text-xs font-mono tracking-[0.2em] uppercase px-8 py-4 transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(var(--clr-primary-1-rgb),0.05)]"
+        >
+          Return to Home View
+        </Link>
+      </div>
   </div>
 </BaseLayout>

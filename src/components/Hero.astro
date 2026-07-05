@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import Link from '../components/Link.astro';
 
 const heroData = (await getEntry('home', 'hero'))!;
 const { heroTitle, heroSub, heroDescription, buttonText } = heroData.data;
@@ -21,9 +22,9 @@ const { heroTitle, heroSub, heroDescription, buttonText } = heroData.data;
   <div class="absolute bottom-[4%] right-6 md:right-20 z-20 pl-20 md:pl-40 flex flex-col items-end text-left">
     <div class="txt-shadow text-white/90 text-base md:text-lg leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]" set:html={heroDescription} />
     <div class="pt-6">
-      <a href="/contact" class="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/40 px-10 py-4 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:scale-105 duration-300">
+      <Link href="/contact" class="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/40 px-10 py-4 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:scale-105 duration-300">
         <span class="font-semibold tracking-widest">{buttonText}</span>
-      </a>
+	  </Link>
     </div>
   </div>
 
